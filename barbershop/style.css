@@ -1,0 +1,123 @@
+/* My own CSS. It is connected AFTER Bootstrap, so it can override it. */
+
+/* ---------- Small helper classes used together with Bootstrap ---------- */
+
+/* Dark blue background (Bootstrap has no such colour) */
+.bg-blue {
+  background-color: #14213d;
+}
+
+/* Red button */
+.btn-red {
+  background-color: #c8102e;
+  border-color: #c8102e;
+  color: white;
+}
+.btn-red:hover {
+  background-color: #a10d25;
+  border-color: #a10d25;
+  color: white;
+}
+
+/* Opening hours box in the hero */
+.hours {
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+/* Blue block instead of a picture in the About section */
+.about-box {
+  min-height: 200px;
+  background-color: #14213d;
+  border-radius: 8px;
+}
+
+
+/* =====================================================
+   TASK 1: PRICES SECTION
+   Only my own CSS (CSS Grid + media queries).
+   Mobile-first: base styles are for a phone,
+   @media (min-width: ...) adds changes for wider screens.
+   ===================================================== */
+
+/* ----- Base styles: PHONE (1 item per row) ----- */
+.services {
+  background-color: #14213d;
+  color: white;
+  padding: 40px 16px;
+}
+
+.services-inner {
+  max-width: 1100px;   /* stops the content from being too wide on big screens */
+  margin: 0 auto;      /* centers the content */
+}
+
+.services-title {
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.services-lead {
+  text-align: center;
+  margin: 0;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr;   /* one column = 1 item per row */
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.service {
+  border: 1px solid white;
+  padding: 16px;
+}
+
+.service h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.service p {
+  margin: 0 0 8px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ----- Breakpoint 1: TABLET, from 768px ----- */
+@media (min-width: 768px) {
+  .services {
+    padding: 60px 32px;          /* more space around the section */
+  }
+
+  .services-list {
+    grid-template-columns: 1fr 1fr;   /* two columns = 2 items per row */
+    gap: 24px;
+  }
+
+  .service {
+    padding: 24px;               /* more space inside each item */
+  }
+}
+
+/* ----- Breakpoint 2: LAPTOP, from 1024px ----- */
+@media (min-width: 1024px) {
+  .services-list {
+    grid-template-columns: 1fr 1fr 1fr;   /* three columns = 3 items per row */
+  }
+
+  /* Something else changes too: heading size and text alignment */
+  .services-title {
+    font-size: 44px;
+    text-align: left;
+  }
+
+  .services-lead {
+    text-align: left;
+  }
+}

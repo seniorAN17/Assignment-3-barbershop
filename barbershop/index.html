@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport tag: without it media queries and the Bootstrap grid do not work on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northside Barbershop</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- My own CSS goes AFTER Bootstrap, so it can override it -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TASK 2: NAVBAR ================= -->
+  <!-- navbar-expand-lg: menu is collapsed into a button on screens smaller than 992px -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+    <div class="container">
+      <a class="navbar-brand" href="#top">Northside</a>
+
+      <!-- Menu button (visible only on small screens) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links that collapse -->
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Prices</a></li>
+          <li class="nav-item"><a class="nav-link" href="#masters">Barbers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= TASK 2: HERO ================= -->
+  <header id="top" class="bg-blue text-white py-5">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Main text: full width on phone, 7 of 12 columns from tablet -->
+        <div class="col-12 col-md-7">
+          <h1 class="mb-3">Sharp cuts. No rush.</h1>
+          <p class="lead">A neighbourhood barbershop with five chairs, hot towels and honest prices.</p>
+          <a href="#contact" class="btn btn-red btn-lg">Book a visit</a>
+
+          <!-- Shown ONLY on phone (d-md-none hides it from tablet up) -->
+          <a href="tel:+77000000000" class="btn btn-light btn-lg ms-2 d-md-none">Call us</a>
+        </div>
+
+        <!-- Hidden on phone (d-none), shown from tablet up (d-md-block) -->
+        <div class="col-md-5 d-none d-md-block">
+          <div class="hours p-4">
+            <h2 class="h5">Opening hours</h2>
+            <p class="mb-1">Mon - Fri: 10:00 - 21:00</p>
+            <p class="mb-1">Saturday: 10:00 - 20:00</p>
+            <p class="mb-0">Sunday: 12:00 - 18:00</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= TASK 2: ABOUT (2 columns) ================= -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Text is more important: it is first on phone (order-1).
+             On tablet and up it goes to the right (order-md-2). -->
+        <div class="col-12 col-md-6 order-1 order-md-2">
+          <h2>Since 2016, one chair at a time</h2>
+          <p>We started with one chair and a strong opinion about fades.
+             Today we are five barbers, and every client gets a full 45 minutes.</p>
+          <p>Every visit is the same: consultation, cut, hot towel, finish.</p>
+        </div>
+
+        <!-- Picture block: second on phone, first (left) on tablet and up -->
+        <div class="col-12 col-md-6 order-2 order-md-1 mt-4 mt-md-0">
+          <div class="about-box d-flex align-items-center justify-content-center">
+            <span class="fs-2 text-white">Est. 2016</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TASK 1: PRICES (own CSS only, NO Bootstrap classes here) ================= -->
+  <section id="services" class="services">
+    <div class="services-inner">
+      <h2 class="services-title">Prices</h2>
+      <p class="services-lead">Every service includes a consultation and a neck clean-up.</p>
+
+      <!-- The list is a CSS Grid: 1 column on phone, 2 on tablet, 3 on laptop -->
+      <div class="services-list">
+        <div class="service">
+          <h3>Classic haircut</h3>
+          <p>Scissors or clipper, wash and styling.</p>
+          <p class="price">5 000 ₸</p>
+        </div>
+        <div class="service">
+          <h3>Beard trim</h3>
+          <p>Shape, line-up and beard oil.</p>
+          <p class="price">3 000 ₸</p>
+        </div>
+        <div class="service">
+          <h3>Hot towel shave</h3>
+          <p>Straight razor and two hot towels.</p>
+          <p class="price">4 000 ₸</p>
+        </div>
+        <div class="service">
+          <h3>Haircut + beard</h3>
+          <p>Our most popular combination.</p>
+          <p class="price">7 500 ₸</p>
+        </div>
+        <div class="service">
+          <h3>Kids haircut</h3>
+          <p>For boys under 12.</p>
+          <p class="price">3 500 ₸</p>
+        </div>
+        <div class="service">
+          <h3>Styling</h3>
+          <p>Wash, dry and product of your choice.</p>
+          <p class="price">2 000 ₸</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TASK 2: BARBERS (cards) ================= -->
+  <section id="masters" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4">Meet the barbers</h2>
+
+      <!-- row-cols-1: 1 card per row on phone
+           row-cols-md-2: 2 cards per row on tablet
+           row-cols-lg-3: 3 cards per row on laptop
+           g-4: gap between cards -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Aidar K.</h3>
+              <p class="text-secondary">Senior barber, 9 years</p>
+              <p class="card-text">Skin fades and classic cuts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Timur S.</h3>
+              <p class="text-secondary">Barber, 6 years</p>
+              <p class="card-text">Beard design and straight razor shaves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Dana M.</h3>
+              <p class="text-secondary">Barber, 5 years</p>
+              <p class="card-text">Long hair and scissor work.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Ruslan B.</h3>
+              <p class="text-secondary">Barber, 4 years</p>
+              <p class="card-text">Kids cuts and quick business trims.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Arman N.</h3>
+              <p class="text-secondary">Barber, 3 years</p>
+              <p class="card-text">Modern cuts and styling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5 card-title">Madi Z.</h3>
+              <p class="text-secondary">Junior barber, 1 year</p>
+              <p class="card-text">Clean basics at a lower price.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TASK 2: FAQ (accordion component) ================= -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <h2 class="mb-4">Questions before you come</h2>
+
+      <div class="accordion" id="faqList">
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              Do I need to book in advance?
+            </button>
+          </h3>
+          <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqList">
+            <div class="accordion-body">Not always, but booking guarantees your time, especially on weekends.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              How long does a visit take?
+            </button>
+          </h3>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">A haircut takes about 45 minutes, a haircut with beard about an hour.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+              Can I pay by card?
+            </button>
+          </h3>
+          <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">Yes. We accept cash, cards and Kaspi QR.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TASK 2: CONTACT ================= -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-3">Contact</h2>
+      <p class="mb-1">Address: Kabanbay Batyr Ave 1, Astana</p>
+      <p class="mb-1">Phone: +7 700 000 00 00</p>
+      <p class="mb-0">Instagram: @northside.barber</p>
+    </div>
+  </section>
+
+  <footer class="bg-blue text-white text-center py-3">
+    © 2026 Northside Barbershop
+  </footer>
+
+  <!-- Bootstrap JS bundle: needed for the navbar button and the accordion -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
